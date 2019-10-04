@@ -1,0 +1,35 @@
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+h1 {
+  font-size: 120px;
+  font-weight: bold;
+  font-family: "Spirax", cursive;
+  color: white;
+  text-shadow: 3px 3px 4px black;
+  text-align: center;
+  margin-top: 100px;
+  height: 30px;
+}
+
+h2 {
+  font-size: 18px;
+  font-family: Noto Sans JP;
+  text-align: center;
+  margin-top: 0px;
+  color: white;
+  text-shadow: 1px 3px 3px #808080;
+}
+
+p {
+  text-align: center;
+  font-family: Noto Sans JP;
+  color: white;
+  text-shadow: 1px 3px 3px #808080;
+}
+
