@@ -71,3 +71,13 @@
     </div>
 </div>
 @endsection
+
+@section('style')
+ <style>
+     body{
+       background-image: url("/images/artur.jpg");
+       margin-top: 200px;
+     }
+     
+ </style>
+@endsection

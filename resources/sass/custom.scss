@@ -10,22 +10,74 @@ body{
        font-weight: bold;
        font-family: 'Spirax', cursive;
        color: white;
-       text-shadow: 3px 3px 4px black; 
+       text-shadow: 3px 5px 5px black; 
        text-align: center;
         margin-top: 100px;
         height: 30px;
 }
  h2 {
-           font-size: 18px;
+           font-size: 40px;
            font-family: Noto Sans JP;
            text-align: center;
            margin-top: 0px;
            color: white;
-           text-shadow: 1px 3px 3px #808080; 
+           text-shadow: 3px 5px 5px #808080; 
 }
  p {
+       font-size: 20px;
        text-align: center;
        font-family: Noto Sans JP;
        color: white;
-       text-shadow: 1px 3px 3px #808080; 
+       text-shadow: 3px 5px 5px #808080; 
+}
+
+
+a.cp_btn{
+    margin-top: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-family:  Noto Sans JP;
+    font-size: 21px;
+    text-shadow: 3px 5px 5px #808080;
+    color: gold;
+    background-color: black;
+    width: 120px;
+    height: 120px;
+    line-height: 120px;
+    border: double 4px #f1eac3;
+    border-radius: 50%;
+    vertical-align: middle;
+    overflow: hidden;
+    transition: .6s;
+    display: inline-block;
+    margin: 0 120px 10px;
+}
+
+a.cp_btn1{
+    margin-top: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-family:  Noto Sans JP;
+    font-size: 21px;
+    text-shadow: 3px 5px 5px #808080;
+    color: gold;
+    background-color: black;
+    width: 120px;
+    height: 120px;
+    line-height: 120px;
+    border: double 4px #f1eac3;
+    border-radius: 50%;
+    vertical-align: middle;
+    overflow: hidden;
+    transition: .6s;
+    display: inline-block;
+    margin: 0 120px 10px;
+}
+
+a.cp_btn:hover {
+	transform: rotateY(360deg);
+}
+
+a.cp_btn1:hover {
+	transform: rotateY(360deg);
 }
