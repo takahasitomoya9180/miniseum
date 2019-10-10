@@ -6,9 +6,9 @@
        <h2>-最小限の博物館-</h2>
        <p>ミニマリスト・シンプリストの残したアイテム達</p>
        <center>
-       <a href="#" class="cp_btn" >新規作成</a>
-       <a href="#" class="cp_btn1">ログイン</a>
-       </center>
+       <a href="/register" class="cp_btn" >新規作成</a>
+       <a href="/login" class="cp_btn1">ログイン</a>
+       
     </div>
 @endsection
 

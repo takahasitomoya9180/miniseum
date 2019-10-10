@@ -21,6 +21,9 @@
     <link href="{{ secure_asset('css/custom.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Spirax|Tulpen+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+    
+    
+    
     @yield('style')
 </head>
 <body>

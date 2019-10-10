@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center" >
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('messages.Login') }}</div>
@@ -76,7 +76,11 @@
  <style>
      body{
        background-image: url("/images/artur.jpg");
-       margin-top: 200px;
+       background-position:center bottom; 
+       background-size:cover ; 
+       width:100%; 
+       height:200px;       
+       margin-top: 100px;
      }
      
  </style>
