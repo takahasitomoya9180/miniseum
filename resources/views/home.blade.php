@@ -1,23 +1,28 @@
 @extends('layouts.app')
 
+
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in!
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="home">
+     <center>
+   ログインに成功しました<br>
+   <a href="/" class="cp_btn">マイページへ</a>
+   <a href="/" class="cp_btn">ログアウト</a>
+   
+     </center>
 </div>
+@endsection
+
+@section('style')
+ <style>
+     body{
+       background-image: url("/images/freely.jpg");
+       margin-top: 200px;
+       background-position:center bottom; 
+       background-size:cover; 
+       width:100%; 
+       height:400px; 
+      
+     }
+     
+ </style>
 @endsection

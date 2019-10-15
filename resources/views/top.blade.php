@@ -7,9 +7,11 @@
        <p>ミニマリスト・シンプリストの残したアイテム達</p>
        <center>
        <a href="/register" class="cp_btn" >新規作成</a>
-       <a href="/login" class="cp_btn1">ログイン</a>
+       <a href="/login" class="cp_btn">ログイン</a>
        
     </div>
+    
+    
 @endsection
 
 @section('style')

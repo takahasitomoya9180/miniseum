@@ -80,7 +80,7 @@
 @section('style')
  <style>
      body{
-       background-image: url("/images/mostafa.jpg");
+       background-image: url("/images/freely.jpg");
        background-position:center bottom; 
        background-size:cover; 
        width:100%; 

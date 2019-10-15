@@ -36,28 +36,6 @@ p {
 
 a.cp_btn {
   margin-top: 10px;
-  text-align: center;
-  text-decoration: none;
-  font-family: Noto Sans JP;
-  font-size: 21px;
-  text-shadow: 3px 5px 5px #808080;
-  color: gold;
-  background-color: black;
-  width: 120px;
-  height: 120px;
-  line-height: 120px;
-  border: double 4px #f1eac3;
-  border-radius: 50%;
-  vertical-align: middle;
-  overflow: hidden;
-  transition: 0.6s;
-  display: inline-block;
-  margin: 0 120px 10px;
-}
-
-a.cp_btn1 {
-  margin-top: 10px;
-  text-align: center;
   text-decoration: none;
   font-family: Noto Sans JP;
   font-size: 21px;
@@ -80,7 +58,50 @@ a.cp_btn:hover {
   transform: rotateY(360deg);
 }
 
-a.cp_btn1:hover {
-  transform: rotateY(360deg);
+.home {
+  font-size: 20px;
+  color: white;
+}
+
+.card {
+  color: white;
+  -webkit-background-clip: text;
+          background-clip: text;
+  opacity: 0.9;
+}
+
+.btn-primary {
+  color: white;
+  background-color: black;
+  border-color: #2176bd;
+}
+
+.btn-link {
+  color: white;
+  background-color: black;
+  border-color: #2176bd;
+}
+
+.btn-link:hover {
+  color: #fff;
+  background-color: #227dc7;
+  border-color: #2176bd;
+}
+
+.btn-link:focus,
+.btn-link.focus {
+  box-shadow: 0 0 0 0.2rem rgba(82, 161, 225, 0.5);
+}
+
+.btn-link.disabled,
+.btn-link:disabled {
+  color: #fff;
+  background-color: #3490dc;
+  border-color: #3490dc;
+}
+
+.card-header {
+  text-align: center;
+  font-size: 25px;
 }
 
