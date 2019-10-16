@@ -6,8 +6,7 @@
      <center>
    ログインに成功しました<br>
    <a href="/" class="cp_btn">マイページへ</a>
-   <a href="/" class="cp_btn">ログアウト</a>
-   
+   <a href="{{ Auth::logout() }}" class="cp_btn">ログアウト</a>
      </center>
 </div>
 @endsection
