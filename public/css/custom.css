@@ -105,3 +105,22 @@ a.cp_btn:hover {
   font-size: 25px;
 }
 
+.main-nav {
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  list-style: none;
+  
+}
+
+.main-nav li{
+  margin-left: 36px;
+}
+
+.main-nav a {
+  color:  white;
+}

@@ -75,7 +75,7 @@
 @section('style')
  <style>
      body{
-       background-image: url("/images/artur.jpg");
+       background-image: url("/images/ko.jpg");
        background-position:center bottom; 
        background-size:cover; 
        width:100%; 

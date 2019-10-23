@@ -3,18 +3,22 @@
 
 @section('content')
 <div class="home">
-     <center>
-   ログインに成功しました<br>
-   <a href="/" class="cp_btn">マイページへ</a>
-   <a href="{{ Auth::logout() }}" class="cp_btn">ログアウト</a>
-     </center>
+         <nav>
+             
+             <ul class="main-nav">
+                 <li><a href="/" >マイページへ</a></li>
+                 <li><a href="{{ Auth::logout() }}">ログアウト</a></li>
+             </ul>
+         </nav>
+     
+     
 </div>
 @endsection
 
 @section('style')
  <style>
      body{
-       background-image: url("/images/freely.jpg");
+       background-image: url("/images/an.jpg");
        margin-top: 200px;
        background-position:center bottom; 
        background-size:cover; 
