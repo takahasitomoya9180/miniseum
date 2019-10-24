@@ -13,7 +13,7 @@
                       <a onclick="document.logoutForm.submit()">ログアウト</a>
                  </form>
              </ul>
-             　　
+             　　</li>
          </nav>
      
      

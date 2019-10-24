@@ -19,10 +19,17 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
-    {
-        return view('home');
-    }
+   
     
+     public function index(Request $request)
+    {
+        $cond_title = $request->cond_title;
+        if ($cond_title !='') {
+            $posts = Item::where('title', $cond_title)->get();
+        } else {
+            $posts = Item::all();
+        }
+        return view('home',['posts' => $posts,'cond_title =>$cond_title']);
+    }
     
 }
