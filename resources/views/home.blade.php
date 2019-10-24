@@ -6,9 +6,14 @@
          <nav>
              
              <ul class="main-nav">
-                 <li><a href="/" >マイページへ</a></li>
-                 <li><a href="{{ Auth::logout() }}">ログアウト</a></li>
+                 <li>
+                 <a href="/" >マイページへ</a>
+                 <form action="{{ url('/logout') }}" method="post" name="logoutForm">
+                      {{ csrf_field() }}
+                      <a onclick="document.logoutForm.submit()">ログアウト</a>
+                 </form>
              </ul>
+             　　
          </nav>
      
      
