@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="register-card">
                 <div class="card-header">ご登録画面</div>
 
                 <div class="card-body">
@@ -80,7 +80,7 @@
 @section('style')
  <style>
      body{
-       background-image: url("/images/freely.jpg");
+       background-image: url("/images/register.jpg");
        background-position:center bottom; 
        background-size:cover; 
        width:100%; 

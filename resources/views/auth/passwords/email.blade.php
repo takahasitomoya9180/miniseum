@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="reset-card">
                 <div class="card-header">パスワードのリセット</div>
 
                 <div class="card-body">
@@ -50,12 +50,12 @@
 @section('style')
  <style>
      body{
-       background-image: url("/images/da.jpg");
+       background-image: url("/images/email.jpg");
        background-position:center bottom; 
        background-size:cover; 
        width:100%; 
        height:400px;       
-       margin-top: 100px;
+       margin-top: 200px;
      }
      
      

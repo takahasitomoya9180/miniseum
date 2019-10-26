@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center" >
         <div class="col-md-8">
-            <div class="card">
+            <div class="login-card">
                 <div class="card-header">{{ __('messages.Login') }}</div>
 
                 <div class="card-body">
@@ -75,7 +75,7 @@
 @section('style')
  <style>
      body{
-       background-image: url("/images/ko.jpg");
+       background-image: url("/images/login.jpg");
        background-position:center bottom; 
        background-size:cover; 
        width:100%; 

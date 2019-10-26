@@ -23,7 +23,7 @@
 @section('style')
  <style>
      body{
-       background-image: url("/images/an.jpg");
+       background-image: url("/images/home.jpg");
        margin-top: 200px;
        background-position:center bottom; 
        background-size:cover; 
