@@ -4,7 +4,6 @@
 @section('content')
 <div class="home">
          <nav>
-             
              <ul class="main-nav">
                  <li>
                  <a href="/" >マイページへ</a>
@@ -15,8 +14,21 @@
              </ul>
              　　</li>
          </nav>
-     
-     
+<div class="container">
+    <div class="row">
+        <a href="{{ action('ItemController@add') }}" role="button" class="btn btn-primary">新規作成</a>
+    </div>
+    <div class="col-md-8">
+        <form action="{{ url('/home') }}" method="get">
+            <div class="form-group row">
+                <label class="col-md-2">タイトル</label>
+            </div>
+        </form>
+    </div>
+    
+</div>  
+         
+         
 </div>
 @endsection
 

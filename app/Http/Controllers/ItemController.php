@@ -41,6 +41,8 @@ class ItemController extends Controller
       $form = $request->all();
       unset($form['_token']);
       $Item->fill($form);
+     
+    
       $Item->save();
       
       return redirect('items/create');
