@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container"
+    <div class="container">
         <div class="create-row">
             <div class="col-md-8 mx-auto">
                 <h2>商品登録画面</h2>

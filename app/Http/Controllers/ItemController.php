@@ -29,7 +29,7 @@ class ItemController extends Controller
         } else {
             $posts = Item::all();
         }
-        return view('home',['posts' => $posts,'cond_title =>$cond_title']);
+        return view('items/index',['posts' => $posts,'cond_title' =>$cond_title]);
     }
     
    public function create(Request $request)
