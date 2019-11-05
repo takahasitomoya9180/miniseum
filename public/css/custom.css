@@ -58,7 +58,7 @@ a.cp_btn:hover {
   transform: rotateY(360deg);
 }
 
-.home {
+.index {
   font-size: 20px;
   color: white;
 }
@@ -108,7 +108,7 @@ a.cp_btn:hover {
 .main-nav {
   position: absolute;
   top: 10px;
-  right: 30px;
+  left: 30px;
   color: white;
 }
 

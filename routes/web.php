@@ -22,6 +22,8 @@ Route::get('/items', 'ItemController@index');
 Route::get('/items/detail/{id}', 'ItemController@detail');
 Route::get('/items/create','ItemController@add')->name("auth");
 Route::post('/items/create','ItemController@create')->name("auth");
+Route::get('/edit','ItemController@edit')->middleware('auth');
+Route::post('/update,ItemController@update')->middleware('auth');
 
 
 
