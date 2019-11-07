@@ -25,7 +25,7 @@ class ItemController extends Controller
     {
         $cond_title = $request->cond_title;
         if ($cond_title !='') {
-            $posts = Item::where('title', $cond_title)->get();
+            $posts = Item::where('title','like', $cond_title)->get();
         } else {
             $posts = Item::all();
         }
@@ -36,52 +36,32 @@ class ItemController extends Controller
   {
      
       $this->validate($request, Item::$rules);
-      $item = new Item;
+      
+      
+      $Item = new Item;
       $form = $request->all();
       unset($form['_token']);
-      $item->fill($form);
+      $form['user_id'] = Auth::user()->id;
+      
+     
+      
+      if (isset($form['image'])) {
+          $path = $request->file('image')->store('public/image');
+          $form['image_path'] = basename($path);
+      } else {
+          $form['image_path'] = null;
+      }
+
+
+      $Item->fill($form);
      
     
-      $item->save();
+      $Item->save();
       
       return redirect('items/create');
   }
   
-  public function edit(Request $request)
-    {
-            
-            $item = Item::find($request->id);
-            if (empty($item)) {
-                abort(404);
-        }
-            return view('items/edit', ['item_form' => $news]);
-    }
-  
-  public function update(Request $request)
-  {
-      // Validationをかける
-      $this->validate($request, Item::$rules);
-      // Item Modelからデータを取得する
-      $item = Item::find($request->id);
-      // 送信されてきたフォームデータを格納する
-      $item_form = $request->all();
-      if (isset($item_form['image'])) {
-        $path = $request->file('image')->store('public/image');
-        $item->image_path = basename($path);
-        unset($item_form['image']);
-      } elseif (isset($request->remove)) {
-        $item->image_path = null;
-        unset($item_form['remove']);
-      }
-      unset($item_form['_token']);
-      // 該当するデータを上書きして保存する
-      $news->fill($news_form)->save();
-
-      return redirect('/items');
-  }
-  
-  
-  
+ 
   public function add(Request $request)
   {
      

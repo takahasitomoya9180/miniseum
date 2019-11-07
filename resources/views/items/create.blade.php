@@ -6,6 +6,7 @@
             <div class="col-md-8 mx-auto">
                 <h2>商品登録画面</h2>
                 <form action="{{ url('items/create') }}" method="post" enctype="multipart/form-data">
+                    
 
                     @if (count($errors) > 0)
                         <ul>
@@ -15,6 +16,13 @@
                         </ul>
                     @endif
                     <div class="form-group row">
+                        <label class="col-md-2">ID</label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" name="user_id" value="{{ old('user_id') }}">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row">
                         <label class="col-md-2">タイトル</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control" name="title" value="{{ old('title') }}">
@@ -23,7 +31,7 @@
                     <div class="form-group row">
                         <label class="col-md-2">本文</label>
                         <div class="col-md-10">
-                            <textarea class="form-control" name="body" rows="20">{{ old('body') }}</textarea>
+                            <textarea class="form-control" name="body" rows="15">{{ old('body') }}</textarea>
                         </div>
                     </div>
                     <div class="form-group row">

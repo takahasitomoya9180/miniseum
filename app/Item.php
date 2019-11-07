@@ -3,7 +3,6 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
 class Item extends Model
 {
     protected $table = 'items';
@@ -17,6 +16,7 @@ class Item extends Model
     ];
     
      public static $rules=array(
+        'user_id' => 'required',
         'title' => 'required',
         'image_path' => 'required',
         'body' =>'required',

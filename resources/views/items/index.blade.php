@@ -8,8 +8,8 @@
                  <li>
                  <a href="/" >マイページへ</a>
                  <form action="{{ url('/logout') }}" method="post" name="logoutForm">
-                      {{ csrf_field() }}
-                      <a onclick="document.logoutForm.submit()">ログアウト</a>
+                       {{ csrf_field() }}
+                            <a onclick="document.logoutForm.submit()">ログアウト</a>
                  </form>
              </ul>
              　　</li>
@@ -25,11 +25,12 @@
                 <div class="col-md-8">
                     <input type="text" class="form-control" size="30" name="cond_title" value="{{ $cond_title }}">
                 </div>
-            </div>
-            <div class="col-md-2">
+                 <div class="col-md-2">
             {{ csrf_field() }}
             <input type="submit" class="btn btn-primary" value="検索">
             </div>
+            </div>
+           
         </form>
     </div>
 </div>  
@@ -39,14 +40,17 @@
                     <table class="table table-dark">
                         <thead>
                             <tr>
-                                <th width="10%">ID</th>
+                                <th width="10%">id</th>
+                                <th width="10%">画像</th>
                                 <th width="20%">タイトル</th>
                                 <th width="40%">本文</th>
+                                
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($posts as $items)
                                 <tr>
+                                    <img src="{{ "/storage/image/$items->image_path" }}" alt="画像" width="100">
                                     <th>{{ $items->id }}</th>
                                     <td>{{ \Str::limit($items->title, 100) }}</td>
                                     <td>{{ \Str::limit($items->body, 250) }}</td>
