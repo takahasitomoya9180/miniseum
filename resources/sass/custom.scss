@@ -5,7 +5,7 @@ body{
     height: 100%;
 }
   
- h1 {
+ h1.top {
        font-size: 120px;
        font-weight: bold;
        font-family: 'Spirax', cursive;
@@ -23,7 +23,7 @@ body{
            color: white;
            text-shadow: 3px 5px 5px #808080; 
 }
- p {
+ p.top {
        font-size: 20px;
        text-align: center;
        font-family: Noto Sans JP;
@@ -63,7 +63,7 @@ a.cp_btn:hover {
 }
 
 
-.index {
+.items-index {
     font-size: 20px;    
     color: white;
     
@@ -140,5 +140,32 @@ a.cp_btn:hover {
     opacity: 0.6;
 }
 
+.mypage-index-container {
+    color: black;
+    font-size:60px;
+    font-family: 'Kosugi', sans-serif;
+    margin: -200px 0 0 -300px;  
+    position: absolute;     
+    top: 45%;       
+    left: 50%;      
+    width: 600px;   
+    height: 400px;  
+    text-align: center;
+    opacity: 0.8;
+}
 
+h1.mypage{
+    opacity: 0.6;
+    margin-top: 10px;
+    font-family: 'Kosugi', sans-serif;
+    color: white;
+}
 
+p.mypage{
+    font-size:30px;
+    font-family: 'Kosugi', sans-serif;
+    opacity: 0.6;
+    color: white;
+    background-size: 10px;
+    
+}

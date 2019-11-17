@@ -2,9 +2,9 @@
 
 @section('content')
     <div class="container">    
-       <h1>miniseum</h1><br><br><br><br><br>
+       <h1 class="top">miniseum</h1><br><br><br><br><br>
        <h2>-最小限の博物館-</h2>
-       <p>ミニマリスト・シンプリストの残したアイテム達</p>
+       <p class="top">ミニマリスト・シンプリストの残したアイテム達</p>
        <center>
        <a href="/register" class="cp_btn" >新規作成</a>
        <a href="/login" class="cp_btn">ログイン</a>

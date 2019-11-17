@@ -2,7 +2,7 @@
 
 
 @section('content')
-<div class="index">
+<div class="items-index">
          <nav>
              <ul class="main-nav">
                  <li>

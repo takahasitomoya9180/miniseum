@@ -18,7 +18,12 @@ class Item extends Model
      public static $rules=array(
         'user_id' => 'required',
         'title' => 'required',
-        'image_path' => 'required',
+        'image' => 'required',
         'body' =>'required',
     );
+    
+    public function histories()
+    {
+        return $this->hasMany('App\History');
+    }
 }
