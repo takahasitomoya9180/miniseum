@@ -15,12 +15,7 @@
                             @endforeach
                         </ul>
                     @endif
-                    <div class="form-group row">
-                        <label class="col-md-2">ID</label>
-                        <div class="col-md-10">
-                            <input type="text" class="form-control" name="user_id" value="{{ old('user_id') }}">
-                        </div>
-                    </div>
+                    
                     
                     <div class="form-group row">
                         <label class="col-md-2">タイトル</label>

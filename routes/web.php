@@ -29,10 +29,10 @@ Route::get('/edit','ItemController@edit')->middleware('auth');
 Route::post('/update,ItemController@update')->middleware('auth');
 
 Route::get('/mypage','MypageController@index')->middleware('auth');
-Route::get('/mypage/items','MypageController@items')->middleware('auth');
+Route::get('/mypage/items/index','MypageController@items')->middleware('auth');
 
 Route::get('/mypage/items/edit','MypageController@edit')->middleware('auth');
-Route::get('/mypage/items/update','MypageController@update')->middleware('auth');
+Route::post('/mypage/items/update','MypageController@update')->middleware('auth');
 
 
 

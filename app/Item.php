@@ -16,9 +16,7 @@ class Item extends Model
     ];
     
      public static $rules=array(
-        'user_id' => 'required',
         'title' => 'required',
-        'image' => 'required',
         'body' =>'required',
     );
     

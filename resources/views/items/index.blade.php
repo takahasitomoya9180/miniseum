@@ -6,7 +6,7 @@
          <nav>
              <ul class="main-nav">
                  <li>
-                 <a href="/" >マイページへ</a>
+                 <a href="/mypage" >マイページへ</a>
                  <form action="{{ url('/logout') }}" method="post" name="logoutForm">
                        {{ csrf_field() }}
                             <a onclick="document.logoutForm.submit()">ログアウト</a>
@@ -36,7 +36,7 @@
 </div>  
 <div class="row">
             <div class="list-news col-md-12 mx-auto">
-                <div class="row">
+                <div>
                     <table class="table table-dark">
                         <thead>
                             <tr>
@@ -50,22 +50,21 @@
                         <tbody>
                             @foreach($posts as $items)
                                 <tr>
-                                    <img src="{{ "/storage/image/$items->image_path" }}" alt="画像" width="100">
-                                    <th>{{ $items->id }}</th>
+                                    <td>{{ $items->id }}</td>
+                                    <td>
+                                        @if($items->image_path !==null)
+                                        <img src="{{ "/storage/image/$items->image_path" }}" alt="画像" width="100">
+                                        @endif
+                                    </td>
                                     <td>{{ \Str::limit($items->title, 100) }}</td>
                                     <td>{{ \Str::limit($items->body, 250) }}</td>
                                 </tr>
                             @endforeach
-                            
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
-
-
-
-
 </div>
 @endsection
 
