@@ -44,3 +44,15 @@
 
 
 @endsection
+
+<style>
+    body{
+        background-image: url("/images/mypage.items.edit.jpg");
+        background-position:center bottom; 
+        background-size:cover; 
+        width:100%; 
+        height:200px;       
+        margin-top: 100px;
+        color: white;
+        }
+</style>

@@ -11,6 +11,16 @@
                    <th width="10%">画像</th>
                    <th width="20%">タイトル</th>
                    <th width="40%">本文</th>
+                   <th width="10%">
+                   <th　width="20%"> 
+                   <a href="{{ action('items\MypageController@edit', ['id' => $items->id]) }}">編集</a>
+                   <a href="">削除</a>
+                   
+                   </th>
+                 
+                       
+                   
+                  
                 </tr>
             </thead>
             <tbody>
