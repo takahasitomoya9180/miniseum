@@ -20,14 +20,11 @@ class MypageController extends Controller
         $items = Item::where('user_id', $own_user_id)->get();
         
         return view('mypage/items/index',['items' => $items]);
-        
-        
     }
     
     public function edit(Request $request)
     {
-        $own_user_id = Auth::user()->id;
-        $items = Item::where('user_id',$own_user_id)->get();
+        $items = Item::find(1);
         if (empty($items)){
             abort(404);
         }
@@ -39,15 +36,24 @@ class MypageController extends Controller
     {
         $this->validate($request, Item::$rules);
         $item = Item::find($request->id);
-        
         $item_form = $request->all();
+        
+        if($request->remove =='true'){
+            $item_form['image_path'] = null;
+        }elseif($request->file('image')){
+            $path =$request->file('image')->store('public/image');
+            $news_form['image_path'] = basename($path);
+        }
         unset($item_form['_token']);
-        
         $item->fill($item_form)->save();
-
-        
-        
-        
+        return redirect('mypage/items/index');
     }
+    
+    public function delete(Request $request)
+    {
+        $item = Item::find($request->id);
+        $item->delete();
+      return redirect('mypage/items/index');
+    }  
     
 }

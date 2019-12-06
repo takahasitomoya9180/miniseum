@@ -16,17 +16,16 @@
                         </ul>
                     @endif
                     
-                    
                     <div class="form-group row">
                         <label class="col-md-2">タイトル</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="title" value="{{ old('title') }}">
+                            <input type="text" class="form-control" name="title" value="{{ ($items->title) }}">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2">本文</label>
                         <div class="col-md-10">
-                            <textarea class="form-control" name="body" rows="15">{{ old('body') }}</textarea>
+                            <textarea class="form-control" name="body" rows="15">{{ $items->body }}</textarea>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -35,12 +34,21 @@
                             <input type="file" class="form-control-file" name="image">
                         </div>
                     </div>
+                    
+                    <div class="cheak box">
+                        <lavel class="col-md-2">
+                            <input type="checkbox" class="form-check-input"　name="remove" value="true">
+                            画像を削除
+                        </lavel>
+                    </div>
                     {{ csrf_field() }}
                     <input type="submit" class="btn btn-primary" value="更新">
+                     <input type="hidden" name="id" value="{{ $items->id }}">
                 </form>
             </div>
         </div>
     </div>
+
 
 
 @endsection

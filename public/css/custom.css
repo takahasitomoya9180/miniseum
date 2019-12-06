@@ -162,3 +162,13 @@ p.mypage {
   background-size: 10px;
 }
 
+.mypage-items-index-nav {
+  display: flex;
+  font-size: 20px;
+  color: white;
+}
+
+a {
+  color: white;
+}
+

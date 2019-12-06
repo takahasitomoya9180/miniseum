@@ -33,6 +33,7 @@ Route::get('/mypage/items/index','MypageController@items')->middleware('auth');
 
 Route::get('/mypage/items/edit','MypageController@edit')->middleware('auth');
 Route::post('/mypage/items/update','MypageController@update')->middleware('auth');
+Route::get('/mypage/items/delete','MypageController@delete')->middleware('auth');
 
 
 

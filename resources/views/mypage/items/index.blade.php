@@ -1,8 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
+     <nav>
+        <ul class="mypage-items-index-nav">
+            <ul><a href="/items">全アイテム一覧</a></ul>
+            <ul><a href="/mypage">マイページ</a></ul>
+        </ul>
+    </nav>
 @foreach ($items as $item)
     <!-- TODO: テーブル形式で表示、編集・削除ボタンをつける -->
+   
     <div>
         <table class="table table-dark">
             <thead>
@@ -13,20 +20,19 @@
                    <th width="40%">本文</th>
                    <th width="10%">
                    <th　width="20%"> 
-                   <a href="{{ action('items\MypageController@edit', ['id' => $items->id]) }}">編集</a>
-                   <a href="">削除</a>
-                   
+                   <a href="{{ action('MypageController@edit', ['id' => $item->id]) }}">編集</a>
+                   <a href="{{ action('MypageController@delete',['id => $item->id']) }}">削除</a>
                    </th>
-                 
-                       
-                   
-                  
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <th>{{ $item->id }}</th>
-                    <td>{{str_limit($item->image_path,50) }}</td>
+                     <td>
+                         @if($item->image_path !==null)
+                         <img src="{{ "/storage/image/$item->image_path" }}" alt="画像" width="100">
+                         @endif
+                                    </td>
                     <td>{{ str_limit($item->title, 100) }}</td>
                     <td>{{ str_limit($item->body) }}</td>
                     <td>
@@ -36,8 +42,6 @@
         </table>
     </div>
   @endforeach
-
-
 
 @endsection
 
@@ -53,7 +57,4 @@
         color: white;
         }
 </style>
-
-
-
 @endsection
