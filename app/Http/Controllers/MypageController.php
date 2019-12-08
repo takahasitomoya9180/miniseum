@@ -51,9 +51,11 @@ class MypageController extends Controller
     
     public function delete(Request $request)
     {
-        $item = Item::find($request->id);
+        $item = Item::where($request->id)->first();
         $item->delete();
       return redirect('mypage/items/index');
     }  
+    
+    
     
 }

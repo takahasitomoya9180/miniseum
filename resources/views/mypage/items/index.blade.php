@@ -8,8 +8,6 @@
         </ul>
     </nav>
 @foreach ($items as $item)
-    <!-- TODO: テーブル形式で表示、編集・削除ボタンをつける -->
-   
     <div>
         <table class="table table-dark">
             <thead>
@@ -40,7 +38,14 @@
                 </tr>
             </tbody>
         </table>
+        <script>
+            function confirm_delete() {
+                if (window.confirm('本当に削除してもよろしいですか。')) {
+                }
+            }
+    </script>
     </div>
+    
   @endforeach
 
 @endsection
