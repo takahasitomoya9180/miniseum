@@ -73,8 +73,10 @@
      body{
        background-image: url("/images/home.jpg");
        margin-top: 200px;
-       background-position:center bottom; 
+       background-position: center center;
        background-size:cover; 
+       background-repeat: no-repeat;
+       background-attachment: fixed;
        width:100%; 
        height:400px; 
       

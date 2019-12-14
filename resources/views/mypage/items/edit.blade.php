@@ -37,10 +37,19 @@
                     
                     <div class="cheak box">
                         <lavel class="col-md-2">
-                            <input type="checkbox" class="form-check-input"　name="remove" value="true">
+                            <input type="checkbox" class="form-check-input"　name="remove" value="true" {{ old('remove') ? 'checked' : null }}>
+                            
                             画像を削除
                         </lavel>
                     </div>
+                    
+                    <center>
+                        @if($items->image_path !==null)
+                        <img src="{{ "/storage/image/$items->image_path" }}" alt="画像" width="200">
+                        @endif
+                    </center>
+                   
+                    
                     {{ csrf_field() }}
                     <input type="submit" class="btn btn-primary" value="更新">
                      <input type="hidden" name="id" value="{{ $items->id }}">
@@ -56,8 +65,10 @@
 <style>
     body{
         background-image: url("/images/mypage.items.edit.jpg");
-        background-position:center bottom; 
+        background-position: center center;
         background-size:cover; 
+        background-repeat: no-repeat;
+        background-attachment: fixed;
         width:100%; 
         height:200px;       
         margin-top: 100px;

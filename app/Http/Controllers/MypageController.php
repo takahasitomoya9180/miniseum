@@ -24,10 +24,18 @@ class MypageController extends Controller
     
     public function edit(Request $request)
     {
-        $items = Item::find(1);
+        $items = Item::find($request->id);
         if (empty($items)){
             abort(404);
         }
+        
+        $user_id= $items->user_id;
+        $own_user_id = Auth::user()->id;
+        
+        if($user_id !== $own_user_id) {
+            abort(404);
+        }
+        
         
         return view('mypage/items/edit',['items'=> $items]);
     }
@@ -42,7 +50,7 @@ class MypageController extends Controller
             $item_form['image_path'] = null;
         }elseif($request->file('image')){
             $path =$request->file('image')->store('public/image');
-            $news_form['image_path'] = basename($path);
+            $item_form['image_path'] = basename($path);
         }
         unset($item_form['_token']);
         $item->fill($item_form)->save();
@@ -52,8 +60,16 @@ class MypageController extends Controller
     public function delete(Request $request)
     {
         $item = Item::where($request->id)->first();
+        
+        
+        $user_id = $item->user_id;
+        $own_user_id = Auth::user()->id;
+        
+        if($user_id !== $own_user_id) {
+            abort(404);
+        }
         $item->delete();
-      return redirect('mypage/items/index');
+        return redirect('mypage/items/index');
     }  
     
     

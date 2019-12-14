@@ -16,8 +16,10 @@
     <style>
         body{
             background-image: url("/images/mypage.top.jpg");
-            background-position:center bottom; 
+            background-position: center center;
             background-size:cover; 
+            background-repeat: no-repeat;
+            background-attachment: fixed;
             width:100%; 
             height:200px;       
             margin-top: 100px;

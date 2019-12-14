@@ -3,8 +3,9 @@
 @section('content')
      <nav>
         <ul class="mypage-items-index-nav">
-            <ul><a href="/items">全アイテム一覧</a></ul>
+            <ul><a href="/items">TOP</a></ul>
             <ul><a href="/mypage">マイページ</a></ul>
+            <ul><a onclick="document.logoutForm.submit()">ログアウト</a></ul>
         </ul>
     </nav>
 @foreach ($items as $item)
@@ -19,7 +20,7 @@
                    <th width="10%">
                    <th　width="20%"> 
                    <a href="{{ action('MypageController@edit', ['id' => $item->id]) }}">編集</a>
-                   <a href="{{ action('MypageController@delete',['id => $item->id']) }}">削除</a>
+                    <a href="#" onclick="confirm_delete()">削除</a>
                    </th>
                 </tr>
             </thead>
@@ -41,6 +42,8 @@
         <script>
             function confirm_delete() {
                 if (window.confirm('本当に削除してもよろしいですか。')) {
+                    window.location.href ="{{ action('MypageController@delete',['id => $item->id']) }}"
+                    window.open('#', '_blank');
                 }
             }
     </script>
@@ -54,8 +57,10 @@
 <style>
     body{
         background-image: url("/images/items.index.jpg");
-        background-position:center bottom; 
+        background-position: center center;
         background-size:cover; 
+        background-repeat: no-repeat;
+        background-attachment: fixed;
         width:100%; 
         height:200px;       
         margin-top: 100px;
