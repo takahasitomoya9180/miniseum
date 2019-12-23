@@ -61,6 +61,6 @@ class ItemController extends Controller
         $item_id =$request->id;
         $item = Item::where('user_id',$item_id)->get();
        
-            return view('items/detail', ['item' => $item]);
+        return view('items/detail', ['item' => $item]);
     }
 }
