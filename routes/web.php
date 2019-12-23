@@ -20,7 +20,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 Route::get('/items', 'ItemController@index');
 
-Route::get('/items/detail/{id}', 'ItemController@detail');
 
 Route::get('/items/create','ItemController@add')->name("auth");
 Route::post('/items/create','ItemController@create')->name("auth");
@@ -34,6 +33,8 @@ Route::get('/mypage/items/index','MypageController@items')->middleware('auth');
 Route::get('/mypage/items/edit','MypageController@edit')->middleware('auth');
 Route::post('/mypage/items/update','MypageController@update')->middleware('auth');
 Route::get('/mypage/items/delete','MypageController@delete')->middleware('auth');
+
+Route::get('/items/detail', 'ItemController@detail');
 
 
 

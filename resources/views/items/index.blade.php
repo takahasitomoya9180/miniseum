@@ -6,18 +6,15 @@
          <nav>
              <ul class="main-nav">
                  <li>
-                 <a href="/mypage" >マイページへ</a>
+                 <a href="/mypage">マイページへ</a>
                  <form action="{{ url('/logout') }}" method="post" name="logoutForm">
                        {{ csrf_field() }}
-                            <a onclick="document.logoutForm.submit()">ログアウト</a>
+                       <a onclick="document.logoutForm.submit()">ログアウト</a>
                  </form>
              </ul>
              　　</li>
          </nav>
 <div class="container">
-    <div class="row">
-        <a href="{{ action('ItemController@add') }}" role="button" class="btn btn-primary">新規作成</a>
-    </div>
     <div class="col-md-8">
         <form action="{{ url('/items') }}" method="get">
             <div class="form-group row">
@@ -44,7 +41,6 @@
                                 <th width="10%">画像</th>
                                 <th width="20%">タイトル</th>
                                 <th width="40%">本文</th>
-                                
                             </tr>
                         </thead>
                         <tbody>
@@ -58,6 +54,7 @@
                                     </td>
                                     <td>{{ \Str::limit($items->title, 100) }}</td>
                                     <td>{{ \Str::limit($items->body, 250) }}</td>
+                                    <td><a href="{{ action('ItemController@detail') }}">詳細</a></td>
                                 </tr>
                             @endforeach
                         </tbody>

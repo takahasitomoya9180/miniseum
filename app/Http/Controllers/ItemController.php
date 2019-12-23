@@ -8,19 +8,6 @@ use Auth;
 
 class ItemController extends Controller
 {  
-   
-    
-    public function detail(Request $request)
-    {
-            
-            $item = Item::find($request->id);
-            if (empty($Item)) {
-                abort(404);
-        }
-            return view('item_detail', ['news_form' => $news]);
-    }
-   
-   
     
       public function index(Request $request)
     {
@@ -67,10 +54,13 @@ class ItemController extends Controller
   {
      
       return view('items/create');
-  }  
-
-
-
-
-   
+  } 
+  
+  public function detail(Request $request)
+    {
+        $item_id =$request->id;
+        $item = Item::where('user_id',$item_id)->get();
+       
+            return view('items/detail', ['item' => $item]);
+    }
 }

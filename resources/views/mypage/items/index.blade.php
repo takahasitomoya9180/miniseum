@@ -3,9 +3,10 @@
 @section('content')
      <nav>
         <ul class="mypage-items-index-nav">
-            <ul><a href="/items">TOP</a></ul>
-            <ul><a href="/mypage">マイページ</a></ul>
-            <ul><a onclick="document.logoutForm.submit()">ログアウト</a></ul>
+            <ul><a href="/items" role="button" class="btn btn-primary">TOP</a></ul>
+            <ul><a href="/mypage" role="button" class="btn btn-primary">マイページ</a></ul>
+            <ul><a href="{{ action('ItemController@add') }}" role="button" class="btn btn-primary">新規作成</a></ul>
+            <ul><a onclick="document.logoutForm.submit()" role="button" class="btn btn-primary">ログアウト</a></ul>
         </ul>
     </nav>
 @foreach ($items as $item)
@@ -20,7 +21,7 @@
                    <th width="10%">
                    <th　width="20%"> 
                    <a href="{{ action('MypageController@edit', ['id' => $item->id]) }}">編集</a>
-                    <a href="#" onclick="confirm_delete()">削除</a>
+                   <a href="#" onclick="confirm_delete()">削除</a>
                    </th>
                 </tr>
             </thead>
