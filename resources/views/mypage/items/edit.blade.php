@@ -19,13 +19,13 @@
                     <div class="form-group row">
                         <label class="col-md-2">タイトル</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="title" value="{{ ($items->title) }}">
+                            <input type="text" class="form-control" name="title" value="{{ old('title',$items->title) }}">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2">本文</label>
                         <div class="col-md-10">
-                            <textarea class="form-control" name="body" rows="15">{{ $items->body }}</textarea>
+                            <textarea class="form-control" name="body" rows="15">{{ old('body',$items->body) }}</textarea>
                         </div>
                     </div>
                     <div class="form-group row">

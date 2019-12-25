@@ -59,7 +59,7 @@ class MypageController extends Controller
     
     public function delete(Request $request)
     {
-        $item = Item::where($request->id)->first();
+        $item = Item::find($request->id);
         
         
         $user_id = $item->user_id;

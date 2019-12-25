@@ -28,11 +28,11 @@
             <tbody>
                 <tr>
                     <th>{{ $item->id }}</th>
-                     <td>
+                    <td>
                          @if($item->image_path !==null)
                          <img src="{{ "/storage/image/$item->image_path" }}" alt="画像" width="100">
                          @endif
-                                    </td>
+                    </td>
                     <td>{{ str_limit($item->title, 100) }}</td>
                     <td>{{ str_limit($item->body) }}</td>
                     <td>
@@ -40,17 +40,18 @@
                 </tr>
             </tbody>
         </table>
-        <script>
-            function confirm_delete() {
-                if (window.confirm('本当に削除してもよろしいですか。')) {
-                    window.location.href ="{{ action('MypageController@delete',['id => $item->id']) }}"
-                    window.open('#', '_blank');
-                }
-            }
-    </script>
     </div>
     
   @endforeach
+  
+  <script>
+  function confirm_delete(item_id) {
+      if (window.confirm('本当に削除してもよろしいですか。')) {
+          window.location.href ="{{ action('MypageController@delete') }}?id=" + item_id;
+          window.open('#', '_blank');
+                }
+            }
+    </script>
 
 @endsection
 

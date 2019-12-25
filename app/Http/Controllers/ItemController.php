@@ -59,7 +59,7 @@ class ItemController extends Controller
   public function detail(Request $request)
     {
         $item_id =$request->id;
-        $item = Item::where('user_id',$item_id)->get();
+        $item = Item::find($item_id);
        
         return view('items/detail', ['item' => $item]);
     }

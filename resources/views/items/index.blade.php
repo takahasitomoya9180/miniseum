@@ -54,7 +54,7 @@
                                     </td>
                                     <td>{{ \Str::limit($items->title, 100) }}</td>
                                     <td>{{ \Str::limit($items->body, 250) }}</td>
-                                    <td><a href="{{ action('ItemController@detail') }}">詳細</a></td>
+                                    <td><a href="{{ action('ItemController@detail') }}?id={{ $items->id }}">詳細</a></td>
                                 </tr>
                             @endforeach
                         </tbody>
