@@ -22,6 +22,7 @@
     <link href="https://fonts.googleapis.com/css?family=Spirax|Tulpen+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Kosugi|M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     
     
     

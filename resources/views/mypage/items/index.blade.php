@@ -21,7 +21,7 @@
                    <th width="10%">
                    <th　width="20%"> 
                    <a href="{{ action('MypageController@edit', ['id' => $item->id]) }}">編集</a>
-                   <a href="#" onclick="confirm_delete()">削除</a>
+                   <a href="#" onclick="confirm_delete({{ $item->id }})">削除</a>
                    </th>
                 </tr>
             </thead>
@@ -41,10 +41,9 @@
             </tbody>
         </table>
     </div>
-    
   @endforeach
   
-  <script>
+   <script>
   function confirm_delete(item_id) {
       if (window.confirm('本当に削除してもよろしいですか。')) {
           window.location.href ="{{ action('MypageController@delete') }}?id=" + item_id;
@@ -52,7 +51,8 @@
                 }
             }
     </script>
-
+  
+ 
 @endsection
 
 @section('style')

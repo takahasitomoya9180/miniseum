@@ -60,6 +60,9 @@ class MypageController extends Controller
     public function delete(Request $request)
     {
         $item = Item::find($request->id);
+         if (empty($item)){
+        abort(404);
+    }
         
         
         $user_id = $item->user_id;
