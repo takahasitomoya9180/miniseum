@@ -55,6 +55,8 @@
                                     <td>{{ \Str::limit($items->title, 100) }}</td>
                                     <td>{{ \Str::limit($items->body, 250) }}</td>
                                     <td><a href="{{ action('ItemController@detail') }}?id={{ $items->id }}">詳細</a></td>
+                                    <td><i class="fas fa-bookmark"></i></td>
+                                    <td><i class="far fa-bookmark"></i></td>
                                 </tr>
                             @endforeach
                         </tbody>

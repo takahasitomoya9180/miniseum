@@ -46,7 +46,7 @@ class ItemController extends Controller
     
       $Item->save();
       
-      return redirect('items/create');
+      return redirect('/mypage/items/index');
   }
   
  

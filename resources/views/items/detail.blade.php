@@ -10,12 +10,12 @@
     </div>
     
     <div class="detail-image">
-        <img src="{{ "/storage/image/$item->image_path" }}" alt="画像" width="200" >
+        <p><img src="{{ "/storage/image/$item->image_path" }}" alt="画像" width="200" ></p>
     </div>
-<input type="submit", class="btn btn-primry" value="検索">
+    <center><a href="/items" class="btn btn-primary">戻る</a></center>
+
 
 @endsection
-
 
 @section('style')
     <style>
@@ -25,9 +25,11 @@
         background-size:cover; 
         background-repeat: no-repeat;
         background-attachment: fixed;
+        background-color:black;
         width:100%; 
         height:400px; 
-    }
+        color:white;
+        }
         
         
     </style>
