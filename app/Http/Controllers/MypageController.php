@@ -60,20 +60,20 @@ class MypageController extends Controller
     public function delete(Request $request)
     {
         $item = Item::find($request->id);
-         if (empty($item)){
-        abort(404);
-    }
-        
-        
+        if (empty($item)){
+            abort(404);
+        }
+        // 登録した人のユーザーID
         $user_id = $item->user_id;
+        // 今ログインしているユーザーID
         $own_user_id = Auth::user()->id;
-        
-        if($user_id !== $own_user_id) {
+        // 登録した本人じゃないユーザーがアクセスした場合
+        if ($user_id !== $own_user_id) {
             abort(404);
         }
         $item->delete();
         return redirect('mypage/items/index');
-    }  
+    }
     
     
     
