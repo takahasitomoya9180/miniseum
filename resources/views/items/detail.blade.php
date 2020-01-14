@@ -1,6 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
+    <nav>
+        <ul class="main-nav">
+            <li>
+                 <a href="/mypage">マイページへ</a>
+                 <form action="{{ url('/logout') }}" method="post" name="logoutForm">
+                       {{ csrf_field() }}
+                       <a onclick="document.logoutForm.submit()">ログアウト</a>
+                 </form>
+            </ul>
+             </li>
+     </nav>
+     
     <div class="detail-title">
         <h1>{{ $item->title}}</h1>
     </div>
@@ -10,8 +22,10 @@
     </div>
     
     <div class="detail-image">
-        <p><img src="{{ "/storage/image/$item->image_path" }}" alt="画像" width="200" ></p>
+        @if($item->image_path !=null)
+        <p><img src="{{ "/storage/image/$item->image_path" }}" alt="画像" width="400" ></p>
     </div>
+    @endif
     <center><a href="/items" class="btn btn-primary">戻る</a></center>
 
 
