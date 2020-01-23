@@ -18,6 +18,7 @@ class MypageController extends Controller
     {
         $own_user_id = Auth::user()->id;
         $items = Item::where('user_id', $own_user_id)->get();
+        $items =  Item::orderBy('id','desc')->paginate(5);
         
         return view('mypage/items/index',['items' => $items]);
     }
@@ -28,11 +29,12 @@ class MypageController extends Controller
         if (empty($items)){
             abort(404);
         }
-        
-        $user_id= $items->user_id;
+         // 登録した人のユーザーID
+        $user_id = $items->user_id;
+        // 今ログインしているユーザーID
         $own_user_id = Auth::user()->id;
-        
-        if($user_id !== $own_user_id) {
+        // 登録した本人じゃないユーザーがアクセスした場合
+        if ($user_id !== $own_user_id) {
             abort(404);
         }
         

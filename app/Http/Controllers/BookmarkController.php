@@ -3,34 +3,36 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Bookmark;
 class BookmarkController extends Controller
 {
     public function create(Request $request)
     {
-        
-        $Item = new Item;
+        $bookmarks = new Bookmark;
         $form = $request->all();
-        unset($form['_token']);
-        $form['user_id'] = Auth::user()->id;
+        $items = Bookmark::where('user_id',Auth::user()->id)
+                         ->where('item_id',$item_id)->first;
+        $items->fill($form);
+        $items->save();
+                        
         
-        $Item->fill($form);
-        
-        $Item->save();
-        return redirect('/mypage/items/index');
+        return redirect('/mypage/items/index',compact('items'));
     }
     
     
     public function delete(Request $request)
     {
-        
-        $items=Item::find($request->id);
+        $item=Bookmark::find($request->id);
         if (empty($item)){
             abort(404);
         }
         
+        //ログイン中のユーザーIDと削除するアイテムIDを検索
+        $items=where('user_id',Auth::user()->id)
+            ->where('item_id',$item_id)->first;
+        
         $items->delete();
-        return redirect('/mypage/items/index');
+        return redirect('/mypage/items/index',compact('items'));
     }
     
     

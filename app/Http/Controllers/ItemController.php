@@ -15,8 +15,9 @@ class ItemController extends Controller
         if ($cond_title !='') {
             $posts = Item::where('title','like', $cond_title)->get();
         } else {
-            $posts = Item::all();
-        }
+           $posts = Item::orderBy('id', 'desc')->paginate(5);
+        } 
+        
         return view('items/index',['posts' => $posts,'cond_title' =>$cond_title]);
     }
     
@@ -31,7 +32,6 @@ class ItemController extends Controller
       unset($form['_token']);
       $form['user_id'] = Auth::user()->id;
       
-     
       
       if (isset($form['image'])) {
           $path = $request->file('image')->store('public/image');

@@ -42,6 +42,7 @@
         </table>
     </div>
   @endforeach
+   {{ $items->Links() }}
   
    <script>
   function confirm_delete(item_id) {

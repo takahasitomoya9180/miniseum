@@ -19,9 +19,8 @@ Route::get('/', function () {
     return view('top');
 });
 
-
 Auth::routes();
-Route::get('/home', 'HomeController@index');
+Route::get('/home/', 'HomeController@index');
 Route::get('/items', 'ItemController@index');
 
 
@@ -42,3 +41,5 @@ Route::get('/items/detail', 'ItemController@detail');
 
 Route::get('/bookmark/create','MypageController@create');
 Route::get('/bookmark/delete','MypageController@delete');
+
+

@@ -14,12 +14,17 @@
      </nav>
      
     <div class="detail-title">
+        
         <h1>{{ $item->title}}</h1>
     </div>
     
     <div class="detail-body">
          <p>{{ $item->body }}</p>
     </div>
+    
+    
+    
+
     
     <div class="detail-image">
         @if($item->image_path !=null)

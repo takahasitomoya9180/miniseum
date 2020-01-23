@@ -61,6 +61,7 @@
                             @endforeach
                         </tbody>
                     </table>
+                    {{ $posts->Links() }}
                 </div>
             </div>
         </div>
