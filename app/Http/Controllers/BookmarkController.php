@@ -8,31 +8,28 @@ class BookmarkController extends Controller
 {
     public function create(Request $request)
     {
+        //newしてインスタンスを作成した
         $bookmarks = new Bookmark;
+        //入力された全てのデータを取得
         $form = $request->all();
-        $items = Bookmark::where('user_id',Auth::user()->id)
-                         ->where('item_id',$item_id)->first;
-        $items->fill($form);
-        $items->save();
-                        
+        //インスタンスに
+        $bookmarks->fill($form);
+        //データを保存する
+        $bookmarks->save();
         
-        return redirect('/mypage/items/index',compact('items'));
+        return redirect('items/index');
     }
     
     
     public function delete(Request $request)
     {
-        $item=Bookmark::find($request->id);
-        if (empty($item)){
+        //削除対象のブックマークを取得する(登録したユーザーのuser_idと登録したアイテムのitem_idを検索して１件だけ取得する)
+        $bookmarks=Bookmark::where('user_id',Auth::user()->id)->where('item_id',$request->item_id)->first();
+        if (empty($bookmarks)){
             abort(404);
         }
-        
-        //ログイン中のユーザーIDと削除するアイテムIDを検索
-        $items=where('user_id',Auth::user()->id)
-            ->where('item_id',$item_id)->first;
-        
-        $items->delete();
-        return redirect('/mypage/items/index',compact('items'));
+        $bookmarks->delete();
+        return redirect('items/index');
     }
     
     
