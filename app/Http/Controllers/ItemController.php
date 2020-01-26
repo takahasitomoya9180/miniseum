@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Item;
 use Auth;
+use App\Bookmark;
 
 
 class ItemController extends Controller
@@ -20,21 +21,21 @@ class ItemController extends Controller
         
         //ブックマークされているか判定する変数を書く
         //ログインしてるユーザーのidを取得
-        $user_id=Auth::user()-id;
+        $user_id=Auth::user()->id;
         $is_bookmarks = [];
         foreach($posts as $item) {
             $item_id = $item->id;
             $is_bookmarks[$item_id] = null;
             //bookmarkテーブルからuser=idとitem_idで検索する
             //データがあればtrue,無ければfalse
-        $bookmark = Bookmark::where('user_id','$user_id')->where('item_id','$item_id')->first;
-        if(enpty($bookmark)){
+        $bookmark = Bookmark::where('user_id',$user_id)->where('item_id',$item_id)->first();
+        if(empty($bookmark)){
             $is_bookmarks = false; 
         } else{
             $is_bookmarks[$item_id] =true;
         }
         }
-        return view('items/index',compact('post','cond_title','is_bookmarks'));
+        return view('items/index',compact('posts','cond_title','is_bookmarks'));
     }
     
    public function create(Request $request)
