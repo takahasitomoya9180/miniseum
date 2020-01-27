@@ -17,6 +17,7 @@
 <div class="container">
     <div class="col-md-8">
         <form action="{{ url('/items') }}" method="get">
+            <buttun class="btn btn-warning" id="ajax-sample"> Ajaxサンプル</buttun>
             <div class="form-group row">
                 <label class="col-md-2">タイトル</label>
                 <div class="col-md-8">
@@ -79,7 +80,32 @@
             </div>
         </div>
 </div>
-<buttun class="btn btn-warning" id="ajax-sample"> Ajaxサンプル</buttun>
+<script>
+          $(function() {
+              $('#ajax-sample').on('click', function() {
+                  // ajaxを書いてみる
+                  $.ajax({
+                      url: '/ajax/sample', // 通信したいコントローラーのアクションへのURL
+                      type: 'POST', // リクエストのタイプ
+                      data:  // コントローラーに渡したいアクション
+                          {'number1': 10, 'number2': 2},
+                      headers: {
+                          // CSRF対策
+                          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                      },
+                  })
+                      .done(function(response) {
+                          console.log(response);
+                          // 通信が成功した場合
+                          alert(response.result);
+                      })
+                      .fail(function() {
+                          // 通信が失敗した場合
+                          alert('エラー');
+                      });
+              });
+          });
+      </script>
 
 @endsection
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Bookmark;
+use Auth;
 class BookmarkController extends Controller
 {
     public function create(Request $request)
