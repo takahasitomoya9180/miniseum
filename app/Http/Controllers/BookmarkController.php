@@ -34,6 +34,18 @@ class BookmarkController extends Controller
     }
     
     
+    public function ajaxSample(Request $request)
+    {
+        $response = arry();
+        $responce["status"] ="OK";
+        $response["messsage"] = "ajax 通信　成功";
+        
+        $nummber1 = $request->number1;
+        $nummber2 = $request->number2;
+        $response["result"] = $number1 + $number2;
+        
+        return Response::json($response);
+    }
     
     
     

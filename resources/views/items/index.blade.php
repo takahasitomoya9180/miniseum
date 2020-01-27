@@ -79,6 +79,8 @@
             </div>
         </div>
 </div>
+<buttun class="btn btn-warning" id="ajax-sample"> Ajaxサンプル</buttun>
+
 @endsection
 
 @section('style')
