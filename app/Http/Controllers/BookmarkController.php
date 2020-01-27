@@ -35,11 +35,11 @@ class BookmarkController extends Controller
     }
     
     
-    public function ajaxSample(Request $request)
+    public function ajaxsample(Request $request)
     {
         $response = arry();
         $responce["status"] ="OK";
-        $response["messsage"] = "ajax 通信　成功";
+        $response["message"] = "ajax 通信　成功";
         
         $nummber1 = $request->number1;
         $nummber2 = $request->number2;

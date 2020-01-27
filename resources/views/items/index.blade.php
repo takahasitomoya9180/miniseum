@@ -80,7 +80,8 @@
             </div>
         </div>
 </div>
-<script>
+
+    <script>
           $(function() {
               $('#ajax-sample').on('click', function() {
                   // ajaxを書いてみる
@@ -105,8 +106,7 @@
                       });
               });
           });
-      </script>
-
+     </script>
 @endsection
 
 @section('style')
