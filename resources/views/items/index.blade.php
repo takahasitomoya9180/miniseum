@@ -84,7 +84,6 @@
     <script>
           $(function() {
               $('#ajax-sample').on('click', function() {
-                  // ajaxを書いてみる
                   $.ajax({
                       url: '/ajax/sample', // 通信したいコントローラーのアクションへのURL
                       type: 'POST', // リクエストのタイプ
