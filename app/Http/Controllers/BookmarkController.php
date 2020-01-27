@@ -14,6 +14,7 @@ class BookmarkController extends Controller
         $form = $request->all();
         //インスタンスに
         $bookmarks->fill($form);
+        $bookmarks->user_id = Auth::user()->id;
         //データを保存する
         $bookmarks->save();
         

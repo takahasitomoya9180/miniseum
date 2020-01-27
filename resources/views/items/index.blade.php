@@ -55,8 +55,21 @@
                                     <td>{{ \Str::limit($items->title, 100) }}</td>
                                     <td>{{ \Str::limit($items->body, 250) }}</td>
                                     <td><a href="{{ action('ItemController@detail') }}?id={{ $items->id }}">詳細</a></td>
-                                    <td><i class="fas fa-bookmark"></i></td>
-                                    <td><i class="far fa-bookmark"></i></td>
+                                    @if($is_bookmarks[$items->id])
+        <!-- 塗りつぶされている方：ブックマーク登録済み -->
+        <td>
+            <a href="{{ action('BookmarkController@delete') }}?item_id={{ $items->id }}">
+                <i class="fas fa-bookmark"></i>
+            </a>
+        </td>
+    @else
+        <!-- 塗りつぶされていない方：ブックマーク未登録 -->
+        <td>
+            <a href="{{ action('BookmarkController@create') }}?item_id={{ $items->id }}">
+                <i class="far fa-bookmark"></i>
+            </a>
+        </td>
+    @endif
                                 </tr>
                             @endforeach
                         </tbody>
