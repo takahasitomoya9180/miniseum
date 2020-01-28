@@ -30,7 +30,7 @@ class ItemController extends Controller
             //データがあればtrue,無ければfalse
         $bookmark = Bookmark::where('user_id',$user_id)->where('item_id',$item_id)->first();
         if(empty($bookmark)){
-            $is_bookmarks = false; 
+            $is_bookmarks[$item_id] = false; 
         } else{
             $is_bookmarks[$item_id] =true;
         }
