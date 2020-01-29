@@ -2,7 +2,7 @@
 
 
 @section('content')
-<div class="items-index">
+    <div class="items-index">
          <nav>
              <ul class="main-nav">
                  <li>
@@ -57,29 +57,30 @@
                                     <td>{{ \Str::limit($items->body, 250) }}</td>
                                     <td><a href="{{ action('ItemController@detail') }}?id={{ $items->id }}">詳細</a></td>
                                     @if($is_bookmarks[$items->id])
-        <!-- 塗りつぶされている方：ブックマーク登録済み -->
-        <td>
-            <a href="{{ action('BookmarkController@delete') }}?item_id={{ $items->id }}">
-                <i class="fas fa-bookmark"></i>
-            </a>
-        </td>
-    @else
-        <!-- 塗りつぶされていない方：ブックマーク未登録 -->
-        <td>
-            <a href="{{ action('BookmarkController@create') }}?item_id={{ $items->id }}">
-                <i class="far fa-bookmark"></i>
-            </a>
-        </td>
-    @endif
-                                </tr>
-                            @endforeach
+                                    
+                                    <!-- 塗りつぶされている方：ブックマーク登録済み -->
+                                    <td>
+                                        <a href="{{ action('BookmarkController@delete') }}?item_id={{ $items->id }}">
+                                            <i class="fas fa-bookmark"></i>
+                                        </a>
+                                    </td>
+                                @else
+                                    <!-- 塗りつぶされていない方：ブックマーク未登録 -->
+                                    <td>
+                                        <a href="{{ action('BookmarkController@create') }}?item_id={{ $items->id }}">
+                                            <i class="far fa-bookmark"></i>
+                                        </a>
+                                    </td>
+                                 @endif
+                                 </tr>
+                                 @endforeach
                         </tbody>
                     </table>
-                    {{ $posts->Links() }}
+                     {{ $posts->Links() }}
                 </div>
             </div>
         </div>
-</div>
+    </div>
 
     <script>
           $(function() {

@@ -14,14 +14,14 @@ class ItemController extends Controller
     {
         $cond_title = $request->cond_title;
         if ($cond_title !='') {
-            $posts = Item::where('title','like', $cond_title)->orderBy('id', 'desc')->paginate(5);
+            $posts = Item::where('title','like', "%$cond_title%")->orderBy('id', 'desc')->paginate(5);
         } else {
            $posts = Item::orderBy('id', 'desc')->paginate(5);
         } 
         
         //ブックマークされているか判定する変数を書く
         //ログインしてるユーザーのidを取得
-        $user_id=Auth::user()->id;
+        $user_id = Auth::user()->id;
         $is_bookmarks = [];
         foreach($posts as $item) {
             $item_id = $item->id;

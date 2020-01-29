@@ -20,7 +20,7 @@ class BookmarkController extends Controller
         //データを保存する
         $bookmarks->save();
         
-        return redirect('items/index');
+        return redirect('/items');
     }
     
     
@@ -32,7 +32,7 @@ class BookmarkController extends Controller
             abort(404);
         }
         $bookmarks->delete();
-        return redirect('items/index');
+        return redirect('/items');
     }
     
     
@@ -48,16 +48,4 @@ class BookmarkController extends Controller
         
         return Response::json($response);
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }
