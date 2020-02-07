@@ -45,3 +45,4 @@ Route::get('/bookmark/delete','BookmarkController@delete');
 // ajaxサンプル
 Route::post('/ajax/sample','BookmarkController@ajaxsample');
 
+

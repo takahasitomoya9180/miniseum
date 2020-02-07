@@ -17,7 +17,10 @@
 <div class="container">
     <div class="col-md-8">
         <form action="{{ url('/items') }}" method="get">
+            
+           <!-- ajaxボタン -->
             <buttun class="btn btn-warning" id="ajax-sample"> Ajaxサンプル</buttun>
+            
             <div class="form-group row">
                 <label class="col-md-2">タイトル</label>
                 <div class="col-md-8">
@@ -68,7 +71,7 @@
                                     <!-- 塗りつぶされていない方：ブックマーク未登録 -->
                                     <td>
                                         <a href="{{ action('BookmarkController@create') }}?item_id={{ $items->id }}">
-                                            <i class="far fa-bookmark"></i>
+                                            <i class="far fa-bookmark" ></i>
                                         </a>
                                     </td>
                                  @endif
@@ -83,13 +86,13 @@
     </div>
 
     <script>
-          $(function() {
+         $(function() {
               $('#ajax-sample').on('click', function() {
                   $.ajax({
                       url: '/ajax/sample', // 通信したいコントローラーのアクションへのURL
                       type: 'POST', // リクエストのタイプ
                       data:  // コントローラーに渡したいアクション
-                          {'number1': 10, 'number2': 2},
+                          {'name':"takahasi"},
                       headers: {
                           // CSRF対策
                           'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
