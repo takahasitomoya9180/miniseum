@@ -20,19 +20,32 @@ class BookmarkController extends Controller
         //データを保存する
         $bookmarks->save();
         
-        return redirect('/items');
+        $response = array();
+        $response["status"] ="OK";
+        $response["message"] = "ajax 通信　成功";
+        
+        return Response::json($response);
     }
     
     
     public function delete(Request $request)
     {
+        
+         
+       
         //削除対象のブックマークを取得する(登録したユーザーのuser_idと登録したアイテムのitem_idを検索して１件だけ取得する)
         $bookmarks=Bookmark::where('user_id',Auth::user()->id)->where('item_id',$request->item_id)->first();
         if (empty($bookmarks)){
             abort(404);
         }
         $bookmarks->delete();
-        return redirect('/items');
+        $response = array();
+        $response["status"] ="OK";
+        $response["message"] = "ajax 通信　成功";
+        
+        
+       
+        return Response::json($response);
     }
     
     

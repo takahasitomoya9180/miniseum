@@ -39,8 +39,8 @@ Route::get('/mypage/items/delete','MypageController@delete')->middleware('auth')
 
 Route::get('/items/detail', 'ItemController@detail');
 
-Route::get('/bookmark/create','BookmarkController@create');
-Route::get('/bookmark/delete','BookmarkController@delete');
+Route::post('/bookmark/create','BookmarkController@create');
+Route::post('/bookmark/delete','BookmarkController@delete');
 
 // ajaxサンプル
 Route::post('/ajax/sample','BookmarkController@ajaxsample');

@@ -3,6 +3,7 @@
 
 @section('content')
     <div class="items-index">
+        
          <nav>
              <ul class="main-nav">
                  <li>
@@ -17,10 +18,6 @@
 <div class="container">
     <div class="col-md-8">
         <form action="{{ url('/items') }}" method="get">
-            
-           <!-- ajaxボタン -->
-            <buttun class="btn btn-warning" id="ajax-sample"> Ajaxサンプル</buttun>
-            
             <div class="form-group row">
                 <label class="col-md-2">タイトル</label>
                 <div class="col-md-8">
@@ -63,15 +60,15 @@
                                     
                                     <!-- 塗りつぶされている方：ブックマーク登録済み -->
                                     <td>
-                                        <a href="{{ action('BookmarkController@delete') }}?item_id={{ $items->id }}">
+                                        <a class ="bookmark-delete" data-id="{{ $items->id }}">
                                             <i class="fas fa-bookmark"></i>
-                                        </a>
+                                        </a> 
                                     </td>
                                 @else
                                     <!-- 塗りつぶされていない方：ブックマーク未登録 -->
                                     <td>
-                                        <a href="{{ action('BookmarkController@create') }}?item_id={{ $items->id }}">
-                                            <i class="far fa-bookmark" ></i>
+                                        <a class="bookmark-create" data-id="{{ $items->id }}">
+                                            <i class="far fa-bookmark"></i>
                                         </a>
                                     </td>
                                  @endif
@@ -87,12 +84,37 @@
 
     <script>
          $(function() {
-              $('#ajax-sample').on('click', function() {
+              $('.bookmark-create').on('click', function() {
                   $.ajax({
-                      url: '/ajax/sample', // 通信したいコントローラーのアクションへのURL
-                      type: 'POST', // リクエストのタイプ
+                      url: '/bookmark/create', // 通信したいコントローラーのアクションへのURL
+                      type: 'post', // リクエストのタイプ
                       data:  // コントローラーに渡したいアクション
-                          {'name':"takahasi"},
+                          {'item_id':$(this).data('id')},
+                      headers: {
+                          // CSRF対策
+                          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                      },
+                  })
+                      .done(function(response) {
+                          console.log(response);
+                          // 通信が成功した場合
+                          alert(response.result);
+                      })
+                      .fail(function() {
+                          // 通信が失敗した場合
+                          alert('エラー');
+                      });
+              });
+          });
+          
+          
+           $(function() {
+              $('.bookmark-delete').on('click', function() {
+                  $.ajax({
+                      url: '/bookmark/delete', // 通信したいコントローラーのアクションへのURL
+                      type: 'post', // リクエストのタイプ
+                      data:  // コントローラーに渡したいアクション
+                          {'item_id':$(this).data('id')},
                       headers: {
                           // CSRF対策
                           'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
