@@ -22,7 +22,8 @@ class BookmarkController extends Controller
         
         $response = array();
         $response["status"] ="OK";
-        $response["message"] = "ajax 通信　成功";
+        $response["message"] = "お気に入り登録されました";
+        
         
         return Response::json($response);
     }
@@ -41,8 +42,7 @@ class BookmarkController extends Controller
         $bookmarks->delete();
         $response = array();
         $response["status"] ="OK";
-        $response["message"] = "ajax 通信　成功";
-        
+        $response["message"] = "お気に入りを解除しました";
         
        
         return Response::json($response);

@@ -84,7 +84,7 @@
 
     <script>
          $(function() {
-              $('.bookmark-create').on('click', function() {
+              $(document).on("click", ".bookmark-create", function () {
                   $.ajax({
                       url: '/bookmark/create', // 通信したいコントローラーのアクションへのURL
                       type: 'post', // リクエストのタイプ
@@ -94,11 +94,19 @@
                           // CSRF対策
                           'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                       },
+                       context: $(this) // ここでdone()のなかで使用したい値を渡す (=doneのなかで'this'で使用できる）
                   })
                       .done(function(response) {
                           console.log(response);
                           // 通信が成功した場合
-                          alert(response.result);
+                          alert(response.message);
+                          this.find('i').removeClass('far');
+                          this.find('i').addClass('fas');
+                          this.removeClass('bookmark-create');
+                          this.addClass('bookmark-delete');
+                         
+                          
+                          
                       })
                       .fail(function() {
                           // 通信が失敗した場合
@@ -106,10 +114,8 @@
                       });
               });
           });
-          
-          
            $(function() {
-              $('.bookmark-delete').on('click', function() {
+              $(document).on("click", ".bookmark-delete", function () {
                   $.ajax({
                       url: '/bookmark/delete', // 通信したいコントローラーのアクションへのURL
                       type: 'post', // リクエストのタイプ
@@ -119,11 +125,18 @@
                           // CSRF対策
                           'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                       },
+                       context: $(this)
                   })
                       .done(function(response) {
                           console.log(response);
                           // 通信が成功した場合
-                          alert(response.result);
+                          alert(response.message);
+                          this.find('i').removeClass('fas');
+                          this.find('i').addClass('far');
+                          this.removeClass('bookmark-delete');
+                          this.addClass('bookmark-create');
+                          
+                          
                       })
                       .fail(function() {
                           // 通信が失敗した場合

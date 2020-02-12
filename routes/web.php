@@ -42,7 +42,5 @@ Route::get('/items/detail', 'ItemController@detail');
 Route::post('/bookmark/create','BookmarkController@create');
 Route::post('/bookmark/delete','BookmarkController@delete');
 
-// ajaxサンプル
-Route::post('/ajax/sample','BookmarkController@ajaxsample');
 
 
