@@ -10,7 +10,14 @@ class BookmarkController extends Controller
 {
     public function create(Request $request)
     {
-        //newしてインスタンスを作成した
+        $response = array();
+        //もし、対象のitemが存在しなければ
+        if(Item::where('id',$item->id)->doesntExist()) {
+            $response["status"]="NG";
+            $response["message"] = "対象のitemが存在しません。";
+            //もし対象のitemが存在すれば
+        }else {
+             //newしてインスタンスを作成した
         $bookmarks = new Bookmark;
         //入力された全てのデータを取得
         $form = $request->all();
@@ -19,32 +26,28 @@ class BookmarkController extends Controller
         $bookmarks->user_id = Auth::user()->id;
         //データを保存する
         $bookmarks->save();
-        
-        $response = array();
         $response["status"] ="OK";
         $response["message"] = "お気に入り登録されました";
-        
-        
+        }
         return Response::json($response);
     }
     
     
     public function delete(Request $request)
     {
+        $response = array();
         
-         
-       
         //削除対象のブックマークを取得する(登録したユーザーのuser_idと登録したアイテムのitem_idを検索して１件だけ取得する)
         $bookmarks=Bookmark::where('user_id',Auth::user()->id)->where('item_id',$request->item_id)->first();
         if (empty($bookmarks)){
             abort(404);
-        }
-        $bookmarks->delete();
-        $response = array();
+            $response ="NG";
+            $response ="対象のidが存在しません";
+        }else {
+            $bookmarks->delete();
         $response["status"] ="OK";
         $response["message"] = "お気に入りを解除しました";
-        
-       
+        }
         return Response::json($response);
     }
     
@@ -55,9 +58,7 @@ class BookmarkController extends Controller
         $response["status"] ="OK";
         $response["message"] = "ajax 通信　成功";
         $name =$request->name;
-        
         $response["result"] = $name;
-        
         return Response::json($response);
     }
 }
