@@ -104,9 +104,6 @@
                           this.find('i').addClass('fas');
                           this.removeClass('bookmark-create');
                           this.addClass('bookmark-delete');
-                         
-                          
-                          
                       })
                       .fail(function() {
                           // 通信が失敗した場合
@@ -135,8 +132,6 @@
                           this.find('i').addClass('far');
                           this.removeClass('bookmark-delete');
                           this.addClass('bookmark-create');
-                          
-                          
                       })
                       .fail(function() {
                           // 通信が失敗した場合

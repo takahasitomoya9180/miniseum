@@ -12,20 +12,12 @@
             </ul>
              </li>
      </nav>
-     
     <div class="detail-title">
-        
         <h1>{{ $item->title}}</h1>
     </div>
-    
     <div class="detail-body">
          <p>{{ $item->body }}</p>
     </div>
-    
-    
-    
-
-    
     <div class="detail-image">
         @if($item->image_path !=null)
         <p><img src="{{ "/storage/image/$item->image_path" }}" alt="画像" width="400" ></p>
