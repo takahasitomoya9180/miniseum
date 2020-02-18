@@ -30,14 +30,12 @@ class BookmarkController extends Controller
               $bookmarks->user_id = Auth::user()->id;
               //データを保存する
               $bookmarks->save();
-      
               $response["status"] ="OK";
               $response["message"] = "お気に入り登録しました。";
           }
       
           return Response::json($response);
       }
-    
     
     public function delete(Request $request)
     {
@@ -56,7 +54,6 @@ class BookmarkController extends Controller
         }
         return Response::json($response);
     }
-    
     
     public function ajaxsample(Request $request)
     {
