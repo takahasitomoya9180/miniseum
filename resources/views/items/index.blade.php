@@ -84,6 +84,8 @@
 <script>
     $(function() {
         $(document).on("click", ".bookmark-create", function () {
+            if(!$(this).hasClass("wait")) {
+            $(this).addClass("wait")
             $.ajax({
                 url: '/bookmark/create', // 通信したいコントローラーのアクションへのURL
                 type: 'post', // リクエストのタイプ
@@ -104,15 +106,19 @@
                      this.find('i').addClass('fas');
                      this.removeClass('bookmark-create');
                      this.addClass('bookmark-delete');
+                     this.removeClass('wait');
                 })
                 .fail(function() {
                     // 通信が失敗した場合
                     alert('エラー');
                       });
+            }
                     });
               });
      $(function() {
          $(document).on("click", ".bookmark-delete", function () {
+             if(!$(this).hasClass("wait")) {
+             $(this).addClass("wait")
              $.ajax({
                  url: '/bookmark/delete', // 通信したいコントローラーのアクションへのURL
                  type: 'post', // リクエストのタイプ
@@ -133,12 +139,14 @@
                     this.find('i').addClass('far');
                     this.removeClass('bookmark-delete');
                     this.addClass('bookmark-create');
+                    this.removeClass('wait');
                     
                 })
                 .fail(function() {
                     // 通信が失敗した場合
                     alert('エラー');
                       });
+             }
               });
           });
 </script>
@@ -155,7 +163,14 @@
        background-attachment: fixed;
        width:100%; 
        height:400px; 
-      
+     }
+     
+     .bookmark-create,.bookmark-delete{
+         cursor: pointer;
+     }
+     
+     .bookmark-create.wait,.bookmark-delete.wait{
+         cursor: wait;
      }
      
  </style>

@@ -45,25 +45,13 @@ class BookmarkController extends Controller
         $bookmarks=Bookmark::where('user_id',Auth::user()->id)->where('item_id',$request->item_id)->first();
         if (empty($bookmarks)){
             abort(404);
-            $response ="NG";
-            $response ="対象のidが存在しません";
+            $response["status"]="NG";
+            $response["message"] ="対象のidが存在しません";
         }else {
             $bookmarks->delete();
             $response["status"] ="OK";
             $response["message"] = "お気に入りを解除しました";
         }
-        return Response::json($response);
-    }
-    
-    public function ajaxsample(Request $request)
-    {
-        $response = array();
-        $response["status"] ="OK";
-        $response["message"] = "ajax 通信　成功";
-        $name =$request->name;
-        
-        $response["result"] = $name;
-        
         return Response::json($response);
     }
 }

@@ -19,9 +19,19 @@ class ItemController extends Controller
            $posts = Item::orderBy('id', 'desc')->paginate(5);
         } 
         
+        
         //ブックマークされているか判定する変数を書く
         //ログインしてるユーザーのidを取得
         $user_id = Auth::user()->id;
+        // $is_bookmarks配列のindexは、item_idとする
+        // 対象のitemがブックマーク登録済みの場合はtrue、未登録の場合はfalseが入る
+        // 例えばログインユーザーがid:1のitemをBookmark登録していた場合
+        // $is_bookmarks[1] = true
+        // 例えばログインユーザーがid:3のitemをBookmark登録していた場合
+        // $is_bookmarks[3] = true;
+        // 逆に、id:2のitemをBookmark登録していない場合
+        // $is_bookmarks[2] = false;
+        
         $is_bookmarks = [];
         foreach($posts as $item) {
             $item_id = $item->id;
