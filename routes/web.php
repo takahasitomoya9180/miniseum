@@ -42,5 +42,5 @@ Route::get('/items/detail', 'ItemController@detail');
 Route::post('/bookmark/create','BookmarkController@create');
 Route::post('/bookmark/delete','BookmarkController@delete');
 
-
+Route::get('/mypage/bookmarks','MypageController@bookmarks');
 

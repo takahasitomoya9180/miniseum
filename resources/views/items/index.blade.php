@@ -3,7 +3,6 @@
 
 @section('content')
     <div class="items-index">
-        
          <nav>
              <ul class="main-nav">
                  <li>
@@ -172,6 +171,5 @@
      .bookmark-create.wait,.bookmark-delete.wait{
          cursor: wait;
      }
-     
  </style>
 @endsection

@@ -58,21 +58,14 @@ class ItemController extends Controller
       $form = $request->all();
       unset($form['_token']);
       $form['user_id'] = Auth::user()->id;
-      
-      
       if (isset($form['image'])) {
           $path = $request->file('image')->store('public/image');
           $form['image_path'] = basename($path);
       } else {
           $form['image_path'] = null;
       }
-
-
       $Item->fill($form);
-     
-    
       $Item->save();
-      
       return redirect('/mypage/items/index');
   }
   
@@ -85,9 +78,17 @@ class ItemController extends Controller
   
   public function detail(Request $request)
     {
+        $user_id = Auth::user()->id;
         $item_id =$request->id;
         $item = Item::find($item_id);
+        $is_bookmarks= null;
+        $bookmark = Bookmark::where('user_id',$user_id)->where('item_id',$item_id)->first();
+        if(empty($bookmark)){
+            $is_bookmarks = false; 
+        } else{
+            $is_bookmarks =true;
+        }
        
-        return view('items/detail', ['item' => $item]);
+        return view('items/detail', compact('item','is_bookmarks'));
     }
 }

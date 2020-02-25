@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\Item;
+use App\Bookmark;
 
 class MypageController extends Controller
 {
@@ -77,6 +78,15 @@ class MypageController extends Controller
         return redirect('mypage/items/index');
     }
     
+    public function bookmarks(Request $request)
+    {
+        $user_id = Auth::user()->id;
+        
+        Bookmark::where('user_id',$user_id)->first();
+        $bookmarks=  Bookmark::orderBy('id','desc')->paginate(5);
+        return view('mypage/bookmarks',compact('bookmarks'));  
+      
+    }
     
     
 }
