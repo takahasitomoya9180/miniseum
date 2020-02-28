@@ -11,7 +11,8 @@ class Bookmark extends Model
      *
      * @var array
      */
-    protected $fillable = [
-        'user_id', 'item_id', 
-    ];
+    public function item()
+      {
+          return $this->belongsTo(Item::class)->withDefault();;
+      }
 }

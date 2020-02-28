@@ -28,18 +28,18 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($bookmarks as $items)
-                                <tr>
-                                    <td>{{ $items->id }}</td>
-                                    <td>
-                                        @if($items->image_path !==null)
-                                        <img src="{{ "/storage/image/$items->image_path" }}" alt="画像" width="100">
-                                        @endif
-                                    </td>
-                                    <td>{{ \Str::limit($items->title, 100) }}</td>
-                                    <td>{{ \Str::limit($items->body, 250) }}</td>
-                                    <td><a href="{{ action('ItemController@detail') }}?id={{ $items->id }}">詳細</a></td>
-                             @endforeach
+                            @foreach($bookmarks as $bookmark)
+          <tr>
+              <td>{{ $bookmark->item->id }}</td>
+              <td>
+                  @if($bookmark->item->image_path !==null)
+                  <img src="{{ "/storage/image/{$bookmark->item->image_path}" }}" alt="画像" width="100">
+                  @endif
+              </td>
+              <td>{{ \Str::limit($bookmark->item->title, 100) }}</td>
+              <td>{{ \Str::limit($bookmark->item->body, 250) }}</td>
+              <td><a href="{{ action('ItemController@detail') }}?id={{ $bookmark->item->id }}">詳細</a></td>
+       @endforeach
                         </tbody>
                     </table>
                 </div>
