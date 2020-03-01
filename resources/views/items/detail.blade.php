@@ -10,6 +10,7 @@
                        <a onclick="document.logoutForm.submit()">ログアウト</a>
                  </form>
                   @if($is_bookmarks)
+<<<<<<<<< saved version
  <!-- 塗りつぶされている方：ブックマーク登録済み -->
     <a class ="bookmark-delete" data-id="{{ $item->id }}">
         <i class="fas fa-bookmark"></i>
@@ -22,6 +23,20 @@
     @endif
             </ul>
              </li>
+=========
+                  <!-- 塗りつぶされている方：ブックマーク登録済み -->
+                  <a class ="bookmark-delete" data-id="{{ $item->id }}">
+                      <i class="fas fa-bookmark"></i>
+                  </a>
+                  @else
+                  <!-- 塗りつぶされていない方：ブックマーク未登録 -->
+                  <a class="bookmark-create" data-id="{{ $item->id }}">
+                      <i class="far fa-bookmark"></i>
+                  </a>
+                  @endif
+        </ul>
+            </li>
+>>>>>>>>> local version
      </nav>
     <div class="detail-title">
         <h1>{{ $item->title}}</h1>
