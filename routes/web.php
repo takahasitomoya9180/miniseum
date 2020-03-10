@@ -37,10 +37,10 @@ Route::get('/mypage/items/edit','MypageController@edit')->middleware('auth');
 Route::post('/mypage/items/update','MypageController@update')->middleware('auth');
 Route::get('/mypage/items/delete','MypageController@delete')->middleware('auth');
 
-Route::get('/items/detail', 'ItemController@detail');
+Route::get('/items/detail', 'ItemController@detail')->middleware('auth');
 
-Route::post('/bookmark/create','BookmarkController@create');
-Route::post('/bookmark/delete','BookmarkController@delete');
+Route::post('/bookmark/create','BookmarkController@create')->middleware('auth');
+Route::post('/bookmark/delete','BookmarkController@delete')->middleware('auth');
 
-Route::get('/mypage/bookmarks','MypageController@bookmarks');
-
+Route::get('/mypage/bookmarks','MypageController@bookmarks')->middleware('auth');
+ROute::get('/mypage/bookmarks/destroy','MypageController@destroy')->middleware('auth');

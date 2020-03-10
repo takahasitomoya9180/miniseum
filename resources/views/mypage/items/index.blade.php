@@ -1,14 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-     <nav>
-        <ul class="mypage-items-index-nav">
-            <ul><a href="/items" role="button" class="btn btn-primary">TOP</a></ul>
-            <ul><a href="/mypage" role="button" class="btn btn-primary">マイページ</a></ul>
-            <ul><a href="{{ action('ItemController@add') }}" role="button" class="btn btn-primary">新規作成</a></ul>
-            <ul><a onclick="document.logoutForm.submit()" role="button" class="btn btn-primary">ログアウト</a></ul>
-        </ul>
-    </nav>
+<ul><a href="{{ action('ItemController@add') }}" role="button" class="btn btn-primary">新規作成</a></ul>
 @foreach ($items as $item)
     <div>
         <table class="table table-dark">

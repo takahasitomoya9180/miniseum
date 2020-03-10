@@ -1,29 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-    <nav>
-        <ul class="main-nav">
-            <li>
-                 <a href="/mypage">マイページへ</a>
-                 <form action="{{ url('/logout') }}" method="post" name="logoutForm">
-                       {{ csrf_field() }}
-                       <a onclick="document.logoutForm.submit()">ログアウト</a>
-                 </form>
-                  @if($is_bookmarks)
-<<<<<<<<< saved version
- <!-- 塗りつぶされている方：ブックマーク登録済み -->
-    <a class ="bookmark-delete" data-id="{{ $item->id }}">
-        <i class="fas fa-bookmark"></i>
-    </a>
-    @else
-    <!-- 塗りつぶされていない方：ブックマーク未登録 -->
-        <a class="bookmark-create" data-id="{{ $item->id }}">
-            <i class="far fa-bookmark"></i>
-        </a>
-    @endif
-            </ul>
-             </li>
-=========
+    
+    <div class="detail-title">
+        <h1>{{ $item->title}}</h1>
+        <ul>
+             @if($is_bookmark)
                   <!-- 塗りつぶされている方：ブックマーク登録済み -->
                   <a class ="bookmark-delete" data-id="{{ $item->id }}">
                       <i class="fas fa-bookmark"></i>
@@ -35,11 +17,7 @@
                   </a>
                   @endif
         </ul>
-            </li>
->>>>>>>>> local version
-     </nav>
-    <div class="detail-title">
-        <h1>{{ $item->title}}</h1>
+        
     </div>
     <div class="detail-body">
          <p>{{ $item->body }}</p>
@@ -49,9 +27,12 @@
         <p><img src="{{ "/storage/image/$item->image_path" }}" alt="画像" width="400" ></p>
     </div>
     @endif
-    <center><a href="/items" class="btn btn-primary">戻る</a></center>
-
-
+    @if ($return_bookmark)
+        <center><a href="/mypage/bookmarks" class="btn btn-primary">戻る</a></center>
+    @else
+        <center><a href="/items" class="btn btn-primary">戻る</a></center>
+    @endif
+    
     
     <script>
     $(function() {

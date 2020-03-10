@@ -54,4 +54,15 @@ class BookmarkController extends Controller
         }
         return Response::json($response);
     }
+    
+    public function destroy(Request $request)
+    {
+          $item = Bookmark::where('item_id', $request->item_id)->where('user_id', Auth::user()->id)->first();
+          if (empty($item)){
+              abort(404);
+          }
+          $item->delete();
+      
+          return redirect('mypage/bookmarks');
+      }
 }

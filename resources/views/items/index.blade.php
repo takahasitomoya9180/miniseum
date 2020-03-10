@@ -2,18 +2,6 @@
 
 
 @section('content')
-    <div class="items-index">
-         <nav>
-             <ul class="main-nav">
-                 <li>
-                 <a href="/mypage">マイページへ</a>
-                 <form action="{{ url('/logout') }}" method="post" name="logoutForm">
-                       {{ csrf_field() }}
-                       <a onclick="document.logoutForm.submit()">ログアウト</a>
-                 </form>
-             </ul>
-             　　</li>
-         </nav>
 <div class="container">
     <div class="col-md-8">
         <form action="{{ url('/items') }}" method="get">

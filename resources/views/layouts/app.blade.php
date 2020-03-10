@@ -33,6 +33,11 @@
 <body>
     <div id="app">
         <main class="py-4">
+            <ul class="topnav">
+	            <li><a href="/items" >Home</a></li>
+	            <li><a href="/mypage">mypage</a></li>
+	            <li><a onclick="document.logoutForm.submit()">logout</a></li>
+        </ul>
             @yield('content')
         </main>
     </div>

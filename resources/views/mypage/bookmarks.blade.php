@@ -2,19 +2,6 @@
 
 
 @section('content')
-  <div class="items-index">
-         <nav>
-             <ul class="main-nav">
-                 <li>
-                 <a href="/mypage">マイページへ</a>
-                 <form action="{{ url('/logout') }}" method="post" name="logoutForm">
-                       {{ csrf_field() }}
-                       <a onclick="document.logoutForm.submit()">ログアウト</a>
-                 </form>
-             </ul>
-             　　</li>
-         </nav>
-  </div>    
   <div class="row">
             <div class="list-news col-md-12">
                 <div>
@@ -29,23 +16,29 @@
                         </thead>
                         <tbody>
                             @foreach($bookmarks as $bookmark)
-          <tr>
-              <td>{{ $bookmark->item->id }}</td>
-              <td>
-                  @if($bookmark->item->image_path !==null)
-                  <img src="{{ "/storage/image/{$bookmark->item->image_path}" }}" alt="画像" width="100">
-                  @endif
-              </td>
-              <td>{{ \Str::limit($bookmark->item->title, 100) }}</td>
-              <td>{{ \Str::limit($bookmark->item->body, 250) }}</td>
-              <td><a href="{{ action('ItemController@detail') }}?id={{ $bookmark->item->id }}">詳細</a></td>
-       @endforeach
+                            <tr>
+                                <td>{{ $bookmark->item->id }}</td>
+                                <td>
+                                      @if($bookmark->item->image_path !==null)
+                                      <img src="{{ "/storage/image/{$bookmark->item->image_path}" }}" alt="画像" width="100">
+                                      @endif
+                                </td>
+                                <td>{{ \Str::limit($bookmark->item->title, 100) }}</td>
+                                <td>{{ \Str::limit($bookmark->item->body, 250) }}</td>
+                                <td><a href="{{ action('ItemController@detail') }}?id={{ $bookmark->item->id }}">詳細</a></td>
+                                <td>
+                                    <a href=""{{ $bookmark->item->id }}">
+                                        <i class="fas fa-bookmark"></i>
+                                    </a> 
+                                </td>
+                            </tr>　
+                          @endforeach
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
-    </div>{{-- ここのコメントはHTML上には表示されません --}}
+    </div>
 @endsection
 
 @section('style')

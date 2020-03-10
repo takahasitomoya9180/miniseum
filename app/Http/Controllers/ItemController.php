@@ -78,17 +78,17 @@ class ItemController extends Controller
   
   public function detail(Request $request)
     {
+        $return_bookmark = $request->bookmark;
         $user_id = Auth::user()->id;
         $item_id =$request->id;
         $item = Item::find($item_id);
-        $is_bookmarks= null;
         $bookmark = Bookmark::where('user_id',$user_id)->where('item_id',$item_id)->first();
         if(empty($bookmark)){
-            $is_bookmarks = false; 
+            $is_bookmark = false; 
         } else{
-            $is_bookmarks =true;
+            $is_bookmark =true;
         }
        
-        return view('items/detail', compact('item','is_bookmarks'));
+        return view('items/detail', compact('item','is_bookmark','return_bookmark'));
     }
 }
