@@ -57,12 +57,12 @@ class BookmarkController extends Controller
     
     public function destroy(Request $request)
     {
-          $item = Bookmark::where('item_id', $request->item_id)->where('user_id', Auth::user()->id)->first();
-          if (empty($item)){
-              abort(404);
+        $bookmarks=Bookmark::where('user_id',Auth::user()->id)->where('item_id',$request->item_id)->first();
+        if (empty($item)){
+            abort(404);
           }
-          $item->delete();
+          $bookmarks->delete();
       
-          return redirect('mypage/bookmarks');
+          return redirect('mypage/bookmark');
       }
 }

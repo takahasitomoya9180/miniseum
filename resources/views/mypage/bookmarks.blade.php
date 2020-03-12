@@ -27,8 +27,8 @@
                                 <td>{{ \Str::limit($bookmark->item->body, 250) }}</td>
                                 <td><a href="{{ action('ItemController@detail') }}?id={{ $bookmark->item->id }}">詳細</a></td>
                                 <td>
-                                    <a href=""{{ $bookmark->item->id }}">
-                                        <i class="fas fa-bookmark"></i>
+                                    <a href="{{ action('BookmarkController@destroy') }}?item_id={{ $item->id }}"
+                                    <i class="fas fa-bookmark"></i>
                                     </a> 
                                 </td>
                             </tr>　
