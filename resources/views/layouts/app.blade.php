@@ -37,7 +37,10 @@
                 <ul class="topnav">
 	                <li><a href="/items" >Home</a></li>
 	                <li><a href="/mypage">mypage</a></li>
-	                <li><a onclick="document.logoutForm.submit()">logout</a></li>
+	                <form action="{{ url('/logout') }}" method="post" name="logoutForm">
+                        {{ csrf_field() }}
+                        <li> <a onclick="document.logoutForm.submit()">logout</a></li>
+                    </form>
                 </ul>
              @endif
             @yield('content')
