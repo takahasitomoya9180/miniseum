@@ -43,3 +43,4 @@ Route::post('/bookmark/create','BookmarkController@create')->middleware('auth');
 Route::post('/bookmark/delete','BookmarkController@delete')->middleware('auth');
 
 Route::get('/mypage/bookmarks','MypageController@bookmarks')->middleware('auth');
+Route::get('/mypage/bookmarks/destroy','MypageController@destroy')->middleware('auth');
