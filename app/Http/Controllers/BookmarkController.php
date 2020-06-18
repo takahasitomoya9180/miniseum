@@ -55,14 +55,5 @@ class BookmarkController extends Controller
         return Response::json($response);
     }
     
-    public function destroy(Request $request)
-    {
-        $bookmarks=Bookmark::where('user_id',Auth::user()->id)->where('item_id',$request->item_id)->first();
-        if (empty($item)){
-            abort(404);
-          }
-          $bookmarks->delete();
-      
-          return view('mypage/bookmarks');
-      }
+   
 }

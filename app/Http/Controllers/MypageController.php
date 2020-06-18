@@ -17,10 +17,13 @@ class MypageController extends Controller
     
     public function items(Request $request)
     {
+        //ログインしたユーザIDを取得する
         $own_user_id = Auth::user()->id;
+        //自身のIDと紐づくすべてのアイテムを取得する
         $items = Item::where('user_id', $own_user_id)->get();
+         
+         //ここからの表示で絞り込めていない
         $items =  Item::orderBy('id','desc')->paginate(5);
-        
         return view('mypage/items/index',['items' => $items]);
     }
     
